@@ -121,7 +121,12 @@ venv/
 env/
 test.db
 config.py
+<<<<<<< HEAD
 *.wsgi
 
 client/node_modules
 _15thnight/static/bundle.js
+=======
+node_modules/
+*.wsgi
+>>>>>>> Beginning site analytics. API still needed.
