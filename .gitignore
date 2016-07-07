@@ -121,4 +121,5 @@ venv/
 env/
 test.db
 config.py
+node_modules/
 *.wsgi

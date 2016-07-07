@@ -84,6 +84,10 @@ def error_page(error):
     return render_template("error.html", error_code=code), code
 
 
+@app.route('/test')
+def test():
+    return 'testing'
+
 @app.route('/')
 def index():
     """Handle routing to the dashboard if logged in or the login page."""
@@ -195,6 +199,13 @@ def dashboard():
             alerts=Alert.get_active_alerts_for_provider(current_user)
         )
 
+@app.route('/analytics')
+@login_required
+def analytics():
+    if current_user == 'admin':
+        flash('Access denied', 'danger')
+        return redirect(url_for('dashboard'))
+    return render_template('analytics.html')
 
 @app.route('/delete_user', methods=['POST'])
 @login_required

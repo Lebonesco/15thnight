@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+  <body>  
+    <div class="container more">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="top" id="top-line-chart">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="bottom-left" id="browser">
+        </div>
+      </div>
+      <!-- <div class="col-xs-12">
+        <div class="bottom-right" id="ret_visitors">
+          </div>
+        </div> -->
+    </div>
+    <script src="{{ url_for('static', filename='js/bundle.js')}}"></script>
+  </body>
+{% endblock %}
