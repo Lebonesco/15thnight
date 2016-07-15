@@ -15,7 +15,7 @@ from _15thnight.forms import (
     RegisterForm, LoginForm, AlertForm, ResponseForm, DeleteUserForm
 )
 from _15thnight.models import User, Alert, Response
-# from _15thnight.twilio_client import send_sms
+from _15thnight.twilio_client import send_sms
 
 try:
     from config import HOST_NAME
