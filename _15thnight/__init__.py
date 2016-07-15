@@ -16,8 +16,10 @@ from _15thnight.forms import (
     AddCategoryForm, AlertForm, DeleteUserForm, LoginForm, RegisterForm,
     ResponseForm
 )
+
 from _15thnight.models import Alert, Category, User
 from _15thnight import queue
+
 
 
 app = Flask(__name__)
@@ -132,6 +134,7 @@ def dashboard():
             flash('User registered succesfully', 'success')
             return redirect(url_for('dashboard'))
         elif request.method == 'POST' and not form.validate_on_submit():
+            flash('Invalid Credentials. Please try again.', 'danger')
             form_error = True
         return render_template(
             'dashboard/admin.html',

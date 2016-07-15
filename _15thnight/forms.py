@@ -59,6 +59,19 @@ class AddCategoryForm(Form):
     description = TextAreaField("Description")
 
 
+    def validate(self):
+        rv = Form.validate(self)
+        if not rv:
+            return False
+
+        email = User.query.filter_by(email=self.email.data.lower()).first()
+        if email is not None:
+            self.email.errors.append("Email already in use.")
+            return False
+
+        self.email = email
+        return True
+
 class DeleteUserForm(Form):
     id = IntegerField('id')
 
