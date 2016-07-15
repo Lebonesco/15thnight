@@ -15,7 +15,7 @@ from _15thnight.forms import (
     RegisterForm, LoginForm, AlertForm, ResponseForm, DeleteUserForm
 )
 from _15thnight.models import User, Alert, Response
-from _15thnight.twilio_client import send_sms
+# from _15thnight.twilio_client import send_sms
 
 try:
     from config import HOST_NAME
@@ -147,6 +147,7 @@ def dashboard():
             flash('User registered succesfully', 'success')
             return redirect(url_for('dashboard'))
         elif request.method == 'POST' and not form.validate_on_submit():
+            flash('Invalid Credentials. Please try again.', 'danger')
             form_error = True
         return render_template(
             'dashboard/admin.html',
