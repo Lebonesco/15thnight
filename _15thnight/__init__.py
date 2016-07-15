@@ -17,6 +17,7 @@ from _15thnight.forms import (
     ResponseForm
 )
 
+
 from _15thnight.models import Alert, Category, User
 from _15thnight import queue
 
