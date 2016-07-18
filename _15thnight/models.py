@@ -135,6 +135,17 @@ class Alert(Model):
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
     user = relationship('User', backref='alerts')
 
+    def to_json(self):
+        return { 
+                'id': self.id,
+                'created_at': self.created_at,
+                'description': self.description,
+                'gender': self.gender,
+                'age': self.age,
+                'needs': self.get_needs(),
+                'responses': self.get_user_response(self.user)
+                }
+
     def get_needs(self):
         needs = ''
         if self.shelter:

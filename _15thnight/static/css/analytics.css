@@ -1,5 +1,5 @@
 /* analytics styles  */
-.top{
+/*.top{
     margin-bottom: 10px;
     background-color: #3f5175;
     border-radius:4px;
@@ -78,4 +78,27 @@
     background-color: #3f5175;
     border-color: #3f5175;
     color: white;
+}
+*/
+/*chart*/
+svg {
+  font: 10px sans-serif;
+}
+
+.area {
+  fill: steelblue;
+  clip-path: url(#clip);
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
 }

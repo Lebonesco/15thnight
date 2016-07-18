@@ -2,7 +2,7 @@
 
 from celery import Celery
 from flask import (
-    Flask, render_template, redirect, url_for, request, session, flash
+    Flask, render_template, jsonify, redirect, url_for, request, session, flash
 )
 from flask.ext.login import (
     login_user, current_user, login_required, LoginManager
@@ -83,10 +83,17 @@ def error_page(error):
     print(error)
     return render_template("error.html", error_code=code), code
 
-
-@app.route('/test')
+# testing block
+@app.route('/advocate_test')
 def test():
-    return 'testing'
+    return render_template('base.html')
+
+@app.route('/sent_alerts') #api call to get sent alerts of current advocate
+def sent_alerts():
+    return jsonify(user_list=[i.to_json() for i in current_user.get_alerts()])
+
+#end of block
+
 
 @app.route('/')
 def index():
