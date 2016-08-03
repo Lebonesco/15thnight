@@ -18,6 +18,10 @@ var config = {
       query: {
         presets: ['es2015', 'stage-0', 'react']
       }
+    },
+    { 
+      test: /\.scss$/, 
+      loaders: "css-loader!sass-loader" 
     }]
   },
   devServer: {
