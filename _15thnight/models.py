@@ -139,7 +139,7 @@ class Alert(Model):
                 'description': self.description,
                 'gender': self.gender,
                 'age': self.age,
-                'needs': self.get_needs(),
+                'categories': self.get_needs(),
                 'responses': self.get_user_response(self.user)
                 }
 
@@ -173,7 +173,9 @@ class Alert(Model):
 
     @classmethod
     def get_user_alerts(cls, user):
-        return cls.query.filter(cls.user == user).all()
+        alerts = cls.query.filter(cls.user == user).all()
+        alerts_jonsified = [x.to_json() for x in alerts]
+        return alerts_jonsified
 
     @classmethod
     def get_user_alert(cls, user, id):
@@ -201,6 +203,13 @@ class Category(Model):
     def __init__(self, name, description):
         self.name = name
         self.description = description
+
+    def to_json(self):
+        return { 
+                'id': self.id,
+                'name': self.name,
+                'description': self.description
+                }
 
     @classmethod
     def get_by_ids(cls, id_list):

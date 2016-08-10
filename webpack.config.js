@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 /*
  * Default webpack configuration for development
@@ -19,11 +20,16 @@ var config = {
         presets: ['es2015', 'stage-0', 'react']
       }
     },
-    { 
-      test: /\.scss$/, 
-      loaders: "css-loader!sass-loader" 
+    {
+      test: /\.scss$/, // preprocesses sass code into css
+      loader: ExtractTextPlugin.extract(
+        
+        "css!sass")
     }]
   },
+  plugins: [
+    new ExtractTextPlugin("../css/bundle.css")
+  ],
   devServer: {
     contentBase: "./templates",
     colors: true,
