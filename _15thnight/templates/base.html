@@ -8,7 +8,10 @@
   <link href="//fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 
   <link href="{{ url_for('static', filename='css/base.css') }}", rel="stylesheet", type="text/css">
-
+  <link href="{{ url_for('static', filename='css/bundle.css') }}", rel="stylesheet", type="text/css">
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
   {% block head %}
 
   {% endblock %}
@@ -58,9 +61,10 @@
       {% endfor %}
     {% endif %}
   {% endwith %}
-
+  <div id="root"></div>
   <script src="/static/js/jquery.min.js"></script>
   <script src="/static/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='./js/bundle.js')}}"></script>
 
   {% block body %}
 

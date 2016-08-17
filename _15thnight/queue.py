@@ -1,5 +1,5 @@
 from celery import Celery
-from _15thnight.twilio_client import send_sms
+# from _15thnight.twilio_client import send_sms
 
 from _15thnight.email_client import send_email
 
@@ -30,5 +30,5 @@ def queue_send_alert(email, number, body):
     """
     Celery task to send messages out in all forms.
     """
-    send_sms(to_number=number, body=body)
+    # send_sms(to_number=number, body=body)
     send_email(email, '15th Night Alert', body)

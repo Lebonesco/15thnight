@@ -66,17 +66,10 @@ def error_page(error):
     print(error)
     return render_template("error.html", error_code=code), code
 
-# testing block
+
 @app.route('/advocate_test')
 def test():
     return render_template('base.html')
-
-@app.route('/sent_alerts') #api call to get sent alerts of current advocate
-def sent_alerts():
-    return jsonify(user_list=[i.to_json() for i in current_user.get_alerts()])
-
-#end of block
-
 
 @app.route('/')
 def index():
@@ -99,6 +92,7 @@ def login():
         return redirect(url_for('dashboard'))
 
     # creates instance of form
+    flash(request.form["form"])
     form = LoginForm(request.form)
     if request.method == 'POST':
         if form.validate_on_submit():

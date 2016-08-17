@@ -3,7 +3,7 @@ from flask.ext.login import current_user
 from _15thnight.queue import queue_send_alert
 from _15thnight.email_client import send_email
 from _15thnight.models import Alert, Category, Response, User
-from _15thnight.twilio_client import send_sms
+# from _15thnight.twilio_client import send_sms
 
 try:
     from config import HOST_NAME
@@ -20,7 +20,7 @@ def send_out_alert(alert_form):
         gender=alert_form.gender.data,
         age=alert_form.age.data,
         user=current_user,
-        categories=Category.get_by_ids(alert_form.categories.data).all()
+        categories=Category.get_by_ids(alert_form.categories.data)
     )
     alert.save()
     providers = User.users_in_categories(alert_form.categories.data)

@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import ReactDOM from 'react-dom';
-import AdvocateTable from './AdvocateTableTest';
+import AdvocateTable from './AdvocateTable';
 
 var Advocate=React.createClass({
     getInitialState:function(){

@@ -20,7 +20,7 @@ def get_users():
 @required_access('admin')
 def create_user():
     """
-    Create an user account.
+    Create a user account.
     """
     form = RegisterForm()
     if not form.validate_on_submit():
