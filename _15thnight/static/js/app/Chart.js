@@ -7,10 +7,10 @@ var Chart=React.createClass({
 
     render:function(){
         var margin = {top: 0, right: 10, bottom: 110, left: 40},
-    margin2 = {top: 430, right: 10, bottom: 20, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom,
-    height2 = 500 - margin2.top - margin2.bottom;
+    margin2 = {top: 320, right: 10, bottom: 40, left: 40},
+    width = 600 - margin.left - margin.right,
+    height = 380 - margin.top - margin.bottom,
+    height2 = 400 - margin2.top - margin2.bottom;
 var formatDate = d3.time.format("%d-%b-%y");
 var parseDate = d3.time.format("%b %Y").parse;
 
@@ -131,7 +131,7 @@ function type(d) {
 }
 
         return (
-            <div>
+            <div className="chart">
                 <svg id="chart">
 
                 </svg>

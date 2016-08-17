@@ -53,12 +53,6 @@ class RegisterForm(Form):
             (category.id, category.name) for category in Category.all()
         ]
 
-
-class AddCategoryForm(Form):
-    name = TextField("Name", validators=[DataRequired()])
-    description = TextAreaField("Description")
-
-
     def validate(self):
         rv = Form.validate(self)
         if not rv:
@@ -70,7 +64,12 @@ class AddCategoryForm(Form):
             return False
 
         self.email = email
-        return True
+        return True    
+
+class AddCategoryForm(Form):
+    name = TextField("Name", validators=[DataRequired()])
+    description = TextAreaField("Description")
+
 
 class DeleteUserForm(Form):
     id = IntegerField('id')
